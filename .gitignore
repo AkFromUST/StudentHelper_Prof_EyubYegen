@@ -1,0 +1,14 @@
+OGE_downloadingForms/venv/
+OGE_downloadingForms/__pycache__/
+OGE_downloadingForms/.DS_Store
+OGE_downloadingForms/venv/
+OGE_downloadingForms/matched_people.csv
+OGE_downloadingForms/unmatched_documents.csv
+OGE_downloadingForms/request_log.csv
+OGE_downloadingForms/progress.md
+OGE_downloadingForms/OGE_Documents/
+OGE_downloadingForms/downloads/
+OGE_downloadingForms/requested_documents_prev.json
+OGE_downloadingForms/peopleToPage_all.json
+OGE_downloadingForms/peopleToPage_all_actual.json
+OGE_downloadingForms/config.py
