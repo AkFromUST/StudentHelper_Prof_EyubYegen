@@ -12,3 +12,5 @@ OGE_downloadingForms/requested_documents_prev.json
 OGE_downloadingForms/peopleToPage_all.json
 OGE_downloadingForms/peopleToPage_actual.json
 OGE_downloadingForms/config.py
+OGE_downloadingForms/direct_download_progress.md
+OGE_downloadingForms/direct_download_log.csv
