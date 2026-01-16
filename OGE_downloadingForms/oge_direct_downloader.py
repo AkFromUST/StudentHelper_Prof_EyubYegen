@@ -41,7 +41,7 @@ PAGE_LOAD_TIMEOUT = 30
 ELEMENT_WAIT_TIMEOUT = 15
 
 # File paths
-MAPPING_FILE = "peopleToPage_actual.json"
+MAPPING_FILE = "peopleToPage.json"
 DOWNLOADS_ROOT = Path(__file__).parent / "OGE_Documents"
 PROGRESS_FILE = "direct_download_progress.md"
 LOG_FILE = "direct_download_log.csv"

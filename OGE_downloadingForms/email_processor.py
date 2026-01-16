@@ -31,7 +31,7 @@ except ImportError:
     print("   Install with: pip install thefuzz python-Levenshtein")
 
 # Configuration
-MAPPING_FILE = "peopleToPage_all.json"
+MAPPING_FILE = "peopleToPage.json"
 DOWNLOADS_ROOT = Path(__file__).parent / "OGE_Documents"  # ./OGE_Documents
 UNMATCHED_FOLDER = "_Unmatched"
 OGE_SENDER = "No_Reply/USOGE.OGEX5@oge.gov"
