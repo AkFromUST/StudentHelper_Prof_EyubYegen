@@ -15,7 +15,9 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-3. Run `people_page_mapper.py` to create peopleToPage.json. Important for other scripts.
+3. Create `config.py`. Keep reading the file to understand what to write in this file. 
+
+4. Run `people_page_mapper.py` to create peopleToPage.json. Important for other scripts.
 ```bash
 python3 people_page_mapper.py
 ```
@@ -152,13 +154,15 @@ Options:
 
 Recommended execution order:
 
-1. **Run oge_automation.py**: Submit requests for documents requiring email delivery
+1. **Run people_page_mapper.py**: This creates the peopleToPage.json that is required by oge_direct_downloader.py and email_processor.py
+
+2. **Run oge_automation.py**: Submit requests for documents requiring email delivery
    - Wait 2-3 business days for OGE to process requests
 
-2. **Run oge_direct_downloader.py**: Download immediately available files
+3. **Run oge_direct_downloader.py**: Download immediately available files
    - Can be run anytime, independent of step 1
 
-3. **Run email_processor.py**: Process emails received from OGE
+4. **Run email_processor.py**: Process emails received from OGE
    - Run after receiving email notifications from OGE
    - Can be run multiple times as new emails arrive
 
