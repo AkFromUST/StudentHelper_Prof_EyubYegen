@@ -46,6 +46,31 @@ END_PAGE = {ending_page_inclusive}
 MAX_FILES_PER_BATCH = 5
 GMAIL_USERNAME = "your.gmail@gmail.com" #Used by email_processor.py. This is the email to donwload files from
 GMAIL_PASSWORD = "your-app-specific-password" #Used by email_processor.py. The email token to allow access. Need to create your own. Please google for the how.
+
+# Page range to process (inclusive)
+START_PAGE = 
+END_PAGE = 
+
+# Maximum files per request batch
+MAX_FILES_PER_BATCH = 5
+
+# Timeouts (in seconds)
+PAGE_LOAD_TIMEOUT = 30
+ELEMENT_WAIT_TIMEOUT = 15
+BETWEEN_ACTIONS_DELAY = 1.5
+
+# Logging
+LOG_FILE = "request_log.csv"
+PROGRESS_FILE = "progress.md"
+
+# Downloads
+DOWNLOADS_DIR = "downloads"
+
+# Persistent tracking file for requested documents (allows resume if script stops)
+REQUESTED_DOCS_FILE = "requested_documents.json"
+
+# Website URLs
+BASE_URL = "https://www.oge.gov/Web/OGE.nsf/Officials%20Individual%20Disclosures%20Search%20Collection?OpenForm"
 ```
 
 **Important**: For Gmail, you must use an app-specific password, not your regular password. Generate one at: https://myaccount.google.com/apppasswords

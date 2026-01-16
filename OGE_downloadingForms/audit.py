@@ -22,6 +22,7 @@ cwd = os.getcwd()
 dir_files = defaultdict(int)
 dir_names = [cwd + "/OGE_Documents/RA_Collection_Aarav_Kumar_Page_37", cwd + "/OGE_Documents/RA_Collection_Aarav_Kumar_Page_38", cwd + "/OGE_Documents/RA_Collection_Kumar_Aarav_Page_39"]
 
+total_d = 0
 for dir in dir_names:
     for file in os.listdir(dir):
         #get the name of the file until the first comma
@@ -32,6 +33,7 @@ for dir in dir_names:
         
         #now get the number of files in the dir
         dir_files[name.lower()] += len(os.listdir(dir + "/" + file))
+        total_d += len(os.listdir(dir + "/" + file))
 
 unknown_names = []
 missing_files = defaultdict(int)
@@ -51,6 +53,8 @@ for name, files in dir_files.items():
 for name, files in total_files.items():
     if name not in dir_files:
         missing_names[name] += files
+
+total = sum(total_files.values())
 
 print("=" * 100)
 print("Unknown Names. Names that are not present in requested_documents.json but are present in the directory. These should not exist:")
@@ -80,4 +84,8 @@ for k, v in missing_names.items():
 
 for k, v in missing_names.items():
     print(f"{v}")
+
 print("=" * 100)
+    
+print(total)
+print(total_d)
