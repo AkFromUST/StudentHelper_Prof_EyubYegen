@@ -1,5 +1,16 @@
 # OGE Document Automation System
 
+## Executive Summary
+
+This automated system streamlines document collection from the U.S. Office of Government Ethics (OGE) website:
+
+- **Automated Document Requests**: Submits web forms to request documents that require email delivery
+- **Direct Downloads**: Automatically downloads documents that are immediately available on the website
+- **Intelligent Organization**: Stores all files in a structured folder hierarchy: `./Page_XX/PersonName/files.pdf`
+- **Email Processing**: Automatically processes OGE email responses and organizes attachments into the correct folders
+
+The system can handle all pages of the OGE website, filters for Transaction types, and organizes thousands of documents without manual intervention.
+
 ## Installation
 
 1. Create and activate a virtual environment:
