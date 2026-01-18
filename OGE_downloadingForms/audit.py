@@ -87,5 +87,8 @@ for k, v in missing_names.items():
 
 print("=" * 100)
     
-print(total)
-print(total_d)
+#print(total)
+#print(total_d)
+
+for k,v in total_files.items():
+    print(f"{k}: {v}")

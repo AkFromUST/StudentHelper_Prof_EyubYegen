@@ -6,6 +6,8 @@ Processes emails from OGE, downloads PDF attachments, and organizes them
 into a directory structure based on the peopleToPage.json mapping.
 
 Structure: ~/Documents/Page_XX/PersonName/filename.pdf
+
+Allow duplicated filenames to be downloaded as well.
 """
 
 import os
@@ -20,6 +22,9 @@ from datetime import datetime
 from typing import Dict, Optional, Tuple, List, Set
 
 import config
+
+"abcd-abcd-123123.pdf"
+"abcd-123123-asdac.pdf"
 
 # Try to import thefuzz for fuzzy matching, fall back to simple matching if not available
 try:
