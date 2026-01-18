@@ -5,7 +5,7 @@ OGE All People to Page Mapper Script
 A script that:
 1. Navigates to the OGE website
 2. Filters by Transaction type and sorts by Name
-3. For each row, opens the request form popup
+3. For each UNIQUE person (by name), opens the request form popup
 4. Clicks "Find Individual by Name"
 5. Collects ALL individuals from the popup list
 6. Maps each individual's full name to their page number (as a hashmap)
@@ -15,7 +15,13 @@ Features:
 - Loads existing mapping on startup (resume capability)
 - Saves after every row (no data loss)
 - Uses hashmap logic (no duplicate keys - only first occurrence is recorded)
+- Tracks processed names in peopleSeen.json to skip duplicate rows for same person
+  (e.g., if "Abbott, James" has 3 rows, only the first one is processed)
 - Does NOT submit any requests - only collects mapping data
+
+Output Files:
+- peopleToPage.json: Maps individual full names to page numbers
+- peopleSeen.json: Tracks which names have been processed (to skip duplicates)
 """
 
 import json
@@ -43,6 +49,7 @@ import config
 
 # Configuration
 OUTPUT_FILE = "peopleToPage.json"
+PEOPLE_SEEN_FILE = "peopleSeen.json"
 
 
 class AllPeoplePageMapper:
@@ -54,8 +61,10 @@ class AllPeoplePageMapper:
         self.headless = headless
         self.current_page = 1
         self.people_to_page: Dict[str, int] = {}
+        self.people_seen: Dict[str, bool] = {}  # Hashmap to track names we've already processed
         self.processed_rows: Set[str] = set()  # Track processed rows to avoid duplicates
         self.load_existing_mapping()  # Load existing data if available
+        self.load_people_seen()  # Load existing people seen tracking
     
     def log(self, message: str, level: str = "info"):
         """Simple logging to console."""
@@ -76,6 +85,33 @@ class AllPeoplePageMapper:
                 self.people_to_page = {}
         else:
             print(f"ℹ️  No existing mapping file found. Starting fresh.")
+    
+    def load_people_seen(self):
+        """Load existing people seen tracking from file if it exists."""
+        if os.path.exists(PEOPLE_SEEN_FILE):
+            try:
+                with open(PEOPLE_SEEN_FILE, 'r', encoding='utf-8') as f:
+                    self.people_seen = json.load(f)
+                print(f"📂 Loaded {len(self.people_seen)} names from {PEOPLE_SEEN_FILE}")
+            except Exception as e:
+                print(f"⚠️  Could not load people seen tracking: {e}")
+                self.people_seen = {}
+        else:
+            print(f"ℹ️  No people seen tracking file found. Starting fresh.")
+    
+    def save_people_seen(self, verbose: bool = False):
+        """Save the people seen tracking to JSON file (hashmap persistence).
+        
+        Args:
+            verbose: If True, log the save operation
+        """
+        try:
+            with open(PEOPLE_SEEN_FILE, 'w', encoding='utf-8') as f:
+                json.dump(self.people_seen, f, indent=2, ensure_ascii=False, sort_keys=True)
+            if verbose:
+                self.log(f"💾 Saved {len(self.people_seen)} names to {PEOPLE_SEEN_FILE}", "success")
+        except Exception as e:
+            self.log(f"Error saving people seen tracking: {e}", "error")
     
     def setup_driver(self):
         """Initialize the Chrome WebDriver."""
@@ -564,6 +600,12 @@ class AllPeoplePageMapper:
                 if not row_data['request_link']:
                     continue
                 
+                # Check if we've already processed this person's name (hashmap check)
+                person_name = row_data['name']
+                if person_name in self.people_seen:
+                    self.log(f"⏭️  Skipping {person_name[:40]}... (already processed)", "info")
+                    continue
+                
                 # Create unique key for this row to avoid duplicates
                 row_key = f"{row_data['name']}|{row_data['title']}|{row_data['date_added']}"
                 if row_key in self.processed_rows:
@@ -576,9 +618,13 @@ class AllPeoplePageMapper:
                 individuals_found = self.process_row_for_individuals(row_data, page_number)
                 total_individuals += individuals_found
                 
-                # Save progress after EVERY row for persistent tracking (silent save)
+                # Mark this person as seen in the hashmap
+                self.people_seen[person_name] = True
+                
+                # Save both files after EVERY row for persistent tracking (silent save)
                 self.save_mapping(verbose=False)
-                self.log(f"💾 Row {row_index + 1}/{total_rows} complete. Total mapped: {len(self.people_to_page)} individuals", "info")
+                self.save_people_seen(verbose=False)
+                self.log(f"💾 Row {row_index + 1}/{total_rows} complete. Total: {len(self.people_to_page)} individuals, {len(self.people_seen)} names processed", "info")
                 
                 # Small delay between rows
                 time.sleep(1)
@@ -655,14 +701,18 @@ class AllPeoplePageMapper:
                 
                 # Save progress after each page (verbose)
                 self.save_mapping(verbose=True)
+                self.save_people_seen(verbose=True)
             
             # Final save (verbose)
             self.save_mapping(verbose=True)
+            self.save_people_seen(verbose=True)
             
             self.log(f"=== MAPPING COMPLETE ===", "success")
             self.log(f"Total unique individuals collected: {len(self.people_to_page)}", "info")
+            self.log(f"Total unique names processed: {len(self.people_seen)}", "info")
             self.log(f"Pages processed: {start_page} to {page}", "info")
             self.log(f"Output saved to: {OUTPUT_FILE}", "info")
+            self.log(f"Names tracking saved to: {PEOPLE_SEEN_FILE}", "info")
             
         except Exception as e:
             self.log(f"Critical error: {e}", "error")
@@ -670,6 +720,7 @@ class AllPeoplePageMapper:
             traceback.print_exc()
             # Save whatever we have (verbose)
             self.save_mapping(verbose=True)
+            self.save_people_seen(verbose=True)
         finally:
             if self.driver:
                 try:
@@ -700,7 +751,8 @@ def main():
     print("=" * 60)
     print("OGE All People to Page Mapper")
     print("=" * 60)
-    print(f"Output file: {OUTPUT_FILE}")
+    print(f"Individual mapping output: {OUTPUT_FILE}")
+    print(f"Names tracking output: {PEOPLE_SEEN_FILE}")
     print(f"Start page: {start_page}")
     print(f"End page: {end_page}")
     print("=" * 60)
@@ -710,27 +762,47 @@ def main():
     print("   2. Filter by 'Transaction' type")
     print("   3. Sort by Name (A-Z)")
     print(f"   4. Process pages {start_page} to {end_page}")
-    print("   5. For each row, open the request form")
-    print("   6. Click 'Find Individual by Name'")
-    print("   7. Collect ALL individuals from the popup")
-    print("   8. Map each individual to their page number")
-    print("   9. Save mapping to peopleToPage.json")
+    print("   5. For each unique person (skip duplicate names):")
+    print("      - Open the request form")
+    print("      - Click 'Find Individual by Name'")
+    print("      - Collect ALL individuals from the popup")
+    print("      - Map each individual to their page number")
+    print("   6. Save mapping to peopleToPage.json after every row")
+    print("   7. Track seen names in peopleSeen.json (skip duplicates)")
     print()
     print("⚠️  NOTE: This script will NOT submit any requests!")
     print("   It only collects the individual-to-page mapping.")
+    print("   Multiple rows for same person = only first row processed.")
     print()
     
     # Check if there's existing data
+    existing_individuals = 0
+    existing_names = 0
+    
     if os.path.exists(OUTPUT_FILE):
         try:
             with open(OUTPUT_FILE, 'r') as f:
                 existing_data = json.load(f)
-                if existing_data:
-                    print(f"📂 Found existing mapping with {len(existing_data)} individuals")
-                    print("   Script will continue and add new individuals (no duplicates)")
-                    print()
+                existing_individuals = len(existing_data)
         except:
             pass
+    
+    if os.path.exists(PEOPLE_SEEN_FILE):
+        try:
+            with open(PEOPLE_SEEN_FILE, 'r') as f:
+                existing_seen = json.load(f)
+                existing_names = len(existing_seen)
+        except:
+            pass
+    
+    if existing_individuals > 0 or existing_names > 0:
+        print(f"📂 Found existing data:")
+        if existing_individuals > 0:
+            print(f"   - {existing_individuals} individuals in {OUTPUT_FILE}")
+        if existing_names > 0:
+            print(f"   - {existing_names} names already processed in {PEOPLE_SEEN_FILE}")
+        print("   Script will resume and add new data (no duplicates)")
+        print()
     
     if not args.yes:
         response = input("Do you want to proceed? (y/n): ").strip().lower()
