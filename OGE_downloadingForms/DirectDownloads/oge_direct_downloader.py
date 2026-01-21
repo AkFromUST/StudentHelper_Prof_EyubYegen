@@ -7,14 +7,16 @@ from the OGE website and organizes them into the direct_downloads folder
 with separate subdirectories for each individual.
 
 Features:
-- Three-level tracking system:
-  * seen_rows.json: Tracks processed individuals
+- Three-level tracking system (for popup files only):
+  * seen_rows.json: Tracks processed individuals from popups
   * row_individual.json: Maps rows to their individuals
   * finished_rows.json: Tracks fully completed rows
+- Direct table downloads: NOT tracked (same person can have multiple files)
+- Popup downloads: Tracked (prevents re-opening popups for same individuals)
 - Downloads files marked "(click to download)" from Presidential Nominee system
 - Organizes downloads: direct_downloads/<individual_name>/
 - Processes pages 1-53 (sorted by Name, filtered by Transaction)
-- Skips repeated rows efficiently (no popup reopening needed)
+- Skips repeated popup rows efficiently (no popup reopening needed)
 """
 
 import json
@@ -831,17 +833,18 @@ class OGEDirectDownloader:
                 time.sleep(2)
                 
                 # Get all individuals from popup
+                # Store index instead of element reference to avoid stale element issues
                 radio_buttons = self.driver.find_elements(By.XPATH, "//input[@type='radio']")
                 
                 individuals = []
-                for radio in radio_buttons:
+                for idx, radio in enumerate(radio_buttons):
                     try:
                         if not radio.is_displayed():
                             continue
                         parent = radio.find_element(By.XPATH, "./..")
                         label_text = parent.text.strip()
                         if label_text:
-                            individuals.append((radio, label_text))
+                            individuals.append((idx, label_text))
                     except:
                         continue
                 
@@ -859,13 +862,20 @@ class OGEDirectDownloader:
                     self.logger.log(f"Stored {len(individual_names)} individuals for row: {name}", "info")
                 
                 # Process each individual
-                for radio, individual_name in individuals:
+                for idx, individual_name in individuals:
                     try:
                         # Check if this individual has already been processed
                         if self.is_individual_seen(individual_name):
                             self.logger.log(f"⏭️  SKIPPED (already processed): {individual_name}", "skip")
                             self.total_seen_skipped += 1
                             continue
+                        
+                        # Re-find radio button to avoid stale element reference
+                        radio_buttons_fresh = self.driver.find_elements(By.XPATH, "//input[@type='radio']")
+                        if idx >= len(radio_buttons_fresh):
+                            self.logger.log(f"Could not find radio button at index {idx} for {individual_name}", "warning")
+                            continue
+                        radio = radio_buttons_fresh[idx]
                         
                         # Click to select this individual
                         self.safe_click(radio)
@@ -952,24 +962,17 @@ class OGEDirectDownloader:
             downloaded_something = False
             
             # If there's a direct download link in the table, download it
+            # Note: We don't track direct downloads because the same person can have 
+            # multiple different files (e.g., different transaction dates)
             if download_link:
-                # Check if this individual has already been processed
-                if not self.is_individual_seen(name):
-                    self.logger.log(f"Found direct table download for: {name}", "info")
-                    if self.download_file(download_link, name, page_number):
-                        downloaded_something = True
-                    # Mark individual as seen after processing
-                    self.mark_individual_as_seen(name)
-                    self.logger.log(f"✓ Marked {name} as processed", "success")
-                else:
-                    self.logger.log(f"⏭️  SKIPPED (already processed): {name}", "skip")
-                    self.total_seen_skipped += 1
-                
-                # Mark row as finished for direct downloads (no popup to check)
-                self.mark_row_as_finished(name)
+                self.logger.log(f"Found direct table download for: {name}", "info")
+                if self.download_file(download_link, name, page_number):
+                    downloaded_something = True
+                self.logger.log(f"✓ Downloaded direct file for {name} (no tracking for direct downloads)", "info")
             
             # If there's a request link, open the form to find "(click to download)" files
             # Note: Individual tracking happens inside process_request_form_for_downloads
+            # These ARE tracked because popup content doesn't change over time
             if request_link:
                 request_url = request_link.get_attribute('href')
                 if request_url:
@@ -1116,12 +1119,13 @@ def main():
     print("   2. Filter by 'Transaction' type")
     print("   3. Sort by Name (A-Z)")
     print(f"   4. Navigate to pages {START_PAGE}-{END_PAGE}")
-    print("   5. Skip rows already fully processed")
-    print("   6. Extract all individuals from each row's popup (first time only)")
-    print("   7. Process each individual, skipping already-processed ones")
-    print("   8. Download ONLY directly available files (no form submission)")
-    print("   9. Organize files by individual: direct_downloads/<name>/")
-    print("   10. Mark rows as complete when all individuals processed")
+    print("   5. Download direct table files (always, no tracking)")
+    print("   6. For popup files: Skip rows already fully processed")
+    print("   7. For popup files: Extract all individuals (first time only)")
+    print("   8. For popup files: Process each individual, skip already-processed ones")
+    print("   9. Download ONLY directly available files (no form submission)")
+    print("   10. Organize files by individual: direct_downloads/<name>/")
+    print("   11. Mark popup rows as complete when all individuals processed")
     print()
     
     if not args.yes:
