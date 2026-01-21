@@ -3,10 +3,18 @@
 OGE Direct Downloader Script
 
 Downloads files that are directly available (no form submission required)
-from the OGE website and organizes them into the OGE_Documents folder
-structure based on peopleToPage_actual.json mapping.
+from the OGE website and organizes them into the direct_downloads folder
+with separate subdirectories for each individual.
 
-Pages 37-39 (sorted by Name, filtered by Transaction)
+Features:
+- Three-level tracking system:
+  * seen_rows.json: Tracks processed individuals
+  * row_individual.json: Maps rows to their individuals
+  * finished_rows.json: Tracks fully completed rows
+- Downloads files marked "(click to download)" from Presidential Nominee system
+- Organizes downloads: direct_downloads/<individual_name>/
+- Processes pages 1-53 (sorted by Name, filtered by Transaction)
+- Skips repeated rows efficiently (no popup reopening needed)
 """
 
 import json
@@ -35,14 +43,16 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 # Configuration
 BASE_URL = "https://www.oge.gov/Web/OGE.nsf/Officials%20Individual%20Disclosures%20Search%20Collection?OpenForm"
-START_PAGE = 37
-END_PAGE = 39
+START_PAGE = 1
+END_PAGE = 53
 PAGE_LOAD_TIMEOUT = 30
 ELEMENT_WAIT_TIMEOUT = 15
 
 # File paths
-MAPPING_FILE = "peopleToPage.json"
-DOWNLOADS_ROOT = Path(__file__).parent / "OGE_Documents"
+SEEN_ROWS_FILE = "seen_rows.json"  # Tracks processed individuals
+ROW_INDIVIDUAL_FILE = "row_individual.json"  # Maps rows to individuals
+FINISHED_ROWS_FILE = "finished_rows.json"  # Tracks completed rows
+DOWNLOADS_ROOT = Path(__file__).parent / "direct_downloads"
 PROGRESS_FILE = "direct_download_progress.md"
 LOG_FILE = "direct_download_log.csv"
 
@@ -105,13 +115,14 @@ class DirectDownloadLogger:
         except Exception as e:
             self.log(f"Error saving CSV log: {e}", "error")
     
-    def log_summary(self, total_downloaded: int, total_skipped: int, total_no_download: int):
+    def log_summary(self, total_downloaded: int, total_skipped: int, total_no_download: int, total_seen_skipped: int = 0):
         """Log final summary."""
         with open(self.progress_file, 'a', encoding='utf-8') as f:
             f.write(f"\n## Final Summary\n")
             f.write(f"- **Completed:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
             f.write(f"- **Files downloaded:** {total_downloaded}\n")
             f.write(f"- **Files skipped (already exist):** {total_skipped}\n")
+            f.write(f"- **Individuals skipped (already seen):** {total_seen_skipped}\n")
             f.write(f"- **Rows without direct download:** {total_no_download}\n")
 
 
@@ -124,30 +135,135 @@ class OGEDirectDownloader:
         self.headless = headless
         self.current_page = 1
         self.logger = DirectDownloadLogger()
-        self.mapping: Dict[str, int] = {}
+        self.seen_rows: Dict[str, bool] = {}  # Tracks individuals
+        self.row_individuals: Dict[str, List[str]] = {}  # Maps rows to individuals
+        self.finished_rows: Dict[str, bool] = {}  # Tracks completed rows
         self.downloads_root = DOWNLOADS_ROOT
         
         # Statistics
         self.total_downloaded = 0
         self.total_skipped = 0
         self.total_no_download = 0
+        self.total_seen_skipped = 0
     
-    def load_mapping(self) -> bool:
-        """Load the people to page mapping from JSON file."""
+    def load_seen_rows(self) -> bool:
+        """Load the seen individuals tracking from JSON file."""
         try:
-            mapping_path = Path(__file__).parent / MAPPING_FILE
-            if not mapping_path.exists():
-                self.logger.log(f"Mapping file not found: {mapping_path}", "error")
-                return False
+            seen_path = Path(__file__).parent / SEEN_ROWS_FILE
+            if not seen_path.exists():
+                self.logger.log(f"No existing {SEEN_ROWS_FILE} found, starting fresh", "info")
+                self.seen_rows = {}
+                return True
             
-            with open(mapping_path, 'r', encoding='utf-8') as f:
-                self.mapping = json.load(f)
+            with open(seen_path, 'r', encoding='utf-8') as f:
+                self.seen_rows = json.load(f)
             
-            self.logger.log(f"Loaded {len(self.mapping)} entries from {MAPPING_FILE}", "success")
+            seen_count = sum(1 for v in self.seen_rows.values() if v)
+            self.logger.log(f"Loaded {len(self.seen_rows)} individuals from {SEEN_ROWS_FILE} ({seen_count} already processed)", "success")
             return True
         except Exception as e:
-            self.logger.log(f"Error loading mapping: {e}", "error")
+            self.logger.log(f"Error loading seen individuals: {e}", "error")
+            self.seen_rows = {}
+            return True
+    
+    def save_seen_rows(self):
+        """Save the seen individuals tracking to JSON file."""
+        try:
+            seen_path = Path(__file__).parent / SEEN_ROWS_FILE
+            with open(seen_path, 'w', encoding='utf-8') as f:
+                json.dump(self.seen_rows, f, indent=2, ensure_ascii=False)
+            return True
+        except Exception as e:
+            self.logger.log(f"Error saving seen individuals: {e}", "error")
             return False
+    
+    def load_finished_rows(self) -> bool:
+        """Load the finished rows tracking from JSON file."""
+        try:
+            finished_path = Path(__file__).parent / FINISHED_ROWS_FILE
+            if not finished_path.exists():
+                self.logger.log(f"No existing {FINISHED_ROWS_FILE} found, starting fresh", "info")
+                self.finished_rows = {}
+                return True
+            
+            with open(finished_path, 'r', encoding='utf-8') as f:
+                self.finished_rows = json.load(f)
+            
+            finished_count = sum(1 for v in self.finished_rows.values() if v)
+            self.logger.log(f"Loaded {len(self.finished_rows)} rows from {FINISHED_ROWS_FILE} ({finished_count} already finished)", "success")
+            return True
+        except Exception as e:
+            self.logger.log(f"Error loading finished rows: {e}", "error")
+            self.finished_rows = {}
+            return True
+    
+    def save_finished_rows(self):
+        """Save the finished rows tracking to JSON file."""
+        try:
+            finished_path = Path(__file__).parent / FINISHED_ROWS_FILE
+            with open(finished_path, 'w', encoding='utf-8') as f:
+                json.dump(self.finished_rows, f, indent=2, ensure_ascii=False)
+            return True
+        except Exception as e:
+            self.logger.log(f"Error saving finished rows: {e}", "error")
+            return False
+    
+    def is_row_finished(self, row_name: str) -> bool:
+        """Check if a row has been fully processed (all individuals done)."""
+        return self.finished_rows.get(row_name, False)
+    
+    def mark_row_as_finished(self, row_name: str):
+        """Mark a row as finished/completely processed."""
+        self.finished_rows[row_name] = True
+        self.save_finished_rows()
+    
+    def load_row_individuals(self) -> bool:
+        """Load the row-to-individuals mapping from JSON file."""
+        try:
+            row_ind_path = Path(__file__).parent / ROW_INDIVIDUAL_FILE
+            if not row_ind_path.exists():
+                self.logger.log(f"No existing {ROW_INDIVIDUAL_FILE} found, starting fresh", "info")
+                self.row_individuals = {}
+                return True
+            
+            with open(row_ind_path, 'r', encoding='utf-8') as f:
+                self.row_individuals = json.load(f)
+            
+            self.logger.log(f"Loaded {len(self.row_individuals)} row mappings from {ROW_INDIVIDUAL_FILE}", "success")
+            return True
+        except Exception as e:
+            self.logger.log(f"Error loading row individuals: {e}", "error")
+            self.row_individuals = {}
+            return True
+    
+    def save_row_individuals(self):
+        """Save the row-to-individuals mapping to JSON file."""
+        try:
+            row_ind_path = Path(__file__).parent / ROW_INDIVIDUAL_FILE
+            with open(row_ind_path, 'w', encoding='utf-8') as f:
+                json.dump(self.row_individuals, f, indent=2, ensure_ascii=False)
+            return True
+        except Exception as e:
+            self.logger.log(f"Error saving row individuals: {e}", "error")
+            return False
+    
+    def get_individuals_for_row(self, row_name: str) -> Optional[List[str]]:
+        """Get the list of individuals associated with a row."""
+        return self.row_individuals.get(row_name)
+    
+    def store_individuals_for_row(self, row_name: str, individuals: List[str]):
+        """Store the list of individuals for a row."""
+        self.row_individuals[row_name] = individuals
+        self.save_row_individuals()
+    
+    def is_individual_seen(self, individual_name: str) -> bool:
+        """Check if an individual has already been processed."""
+        return self.seen_rows.get(individual_name, False)
+    
+    def mark_individual_as_seen(self, individual_name: str):
+        """Mark an individual as seen/processed."""
+        self.seen_rows[individual_name] = True
+        self.save_seen_rows()
     
     def setup_driver(self):
         """Initialize the Chrome WebDriver with download settings."""
@@ -429,41 +545,11 @@ class OGEDirectDownloader:
         sanitized = sanitized.strip('._')
         return sanitized[:100]
     
-    def find_person_in_mapping(self, name: str) -> Optional[int]:
-        """Find the page number for a person from the mapping."""
-        # Direct match
-        if name in self.mapping:
-            return self.mapping[name]
-        
-        # Case-insensitive match
-        name_lower = name.lower()
-        for key, page in self.mapping.items():
-            if key.lower() == name_lower:
-                return page
-        
-        # Partial match (last name, first name start)
-        name_parts = name.split(',')
-        if len(name_parts) >= 2:
-            last_name = name_parts[0].strip().lower()
-            first_name_start = name_parts[1].strip().lower()[:3]
-            
-            for key, page in self.mapping.items():
-                key_parts = key.split(',')
-                if len(key_parts) >= 2:
-                    key_last = key_parts[0].strip().lower()
-                    key_first = key_parts[1].strip().lower()
-                    
-                    if key_last == last_name and key_first.startswith(first_name_start):
-                        return page
-        
-        return None
-    
-    def get_target_folder(self, name: str, page_number: int) -> Path:
+    def get_target_folder(self, name: str, page_number: int = None) -> Path:
         """Get the target folder for saving a file."""
-        page_folder = f"Page_{page_number:02d}"
         person_folder = self.sanitize_folder_name(name)
         
-        target_dir = self.downloads_root / page_folder / person_folder
+        target_dir = self.downloads_root / person_folder
         target_dir.mkdir(parents=True, exist_ok=True)
         
         return target_dir
@@ -766,9 +852,21 @@ class OGEDirectDownloader:
                 
                 self.logger.log(f"Found {len(individuals)} individual(s) in popup", "info")
                 
+                # Extract individual names and store them for this row (if not already stored)
+                individual_names = [ind_name for _, ind_name in individuals]
+                if name not in self.row_individuals:
+                    self.store_individuals_for_row(name, individual_names)
+                    self.logger.log(f"Stored {len(individual_names)} individuals for row: {name}", "info")
+                
                 # Process each individual
                 for radio, individual_name in individuals:
                     try:
+                        # Check if this individual has already been processed
+                        if self.is_individual_seen(individual_name):
+                            self.logger.log(f"⏭️  SKIPPED (already processed): {individual_name}", "skip")
+                            self.total_seen_skipped += 1
+                            continue
+                        
                         # Click to select this individual
                         self.safe_click(radio)
                         time.sleep(2)
@@ -776,6 +874,10 @@ class OGEDirectDownloader:
                         # Download any directly available files for this individual
                         count = self.download_from_popup(individual_name, page_number)
                         downloaded_count += count
+                        
+                        # Mark this individual as processed
+                        self.mark_individual_as_seen(individual_name)
+                        self.logger.log(f"✓ Marked {individual_name} as processed", "success")
                         
                     except Exception as e:
                         self.logger.log(f"Error processing individual {individual_name[:30]}: {e}", "warning")
@@ -820,10 +922,11 @@ class OGEDirectDownloader:
             if "Transaction" not in type_text:
                 return False
             
-            # Find the page number for this person from mapping
-            mapped_page = self.find_person_in_mapping(name)
-            if mapped_page is None:
-                mapped_page = page_number
+            # Check if this row has been fully processed (all individuals done)
+            if self.is_row_finished(name):
+                self.logger.log(f"⏭️  SKIPPED (row fully processed): {name}", "skip")
+                self.total_seen_skipped += 1
+                return False
             
             # First check for direct download link in the main table (PDF link)
             download_link = None
@@ -850,18 +953,38 @@ class OGEDirectDownloader:
             
             # If there's a direct download link in the table, download it
             if download_link:
-                self.logger.log(f"Found direct table download for: {name}", "info")
-                if self.download_file(download_link, name, mapped_page):
-                    downloaded_something = True
+                # Check if this individual has already been processed
+                if not self.is_individual_seen(name):
+                    self.logger.log(f"Found direct table download for: {name}", "info")
+                    if self.download_file(download_link, name, page_number):
+                        downloaded_something = True
+                    # Mark individual as seen after processing
+                    self.mark_individual_as_seen(name)
+                    self.logger.log(f"✓ Marked {name} as processed", "success")
+                else:
+                    self.logger.log(f"⏭️  SKIPPED (already processed): {name}", "skip")
+                    self.total_seen_skipped += 1
+                
+                # Mark row as finished for direct downloads (no popup to check)
+                self.mark_row_as_finished(name)
             
             # If there's a request link, open the form to find "(click to download)" files
+            # Note: Individual tracking happens inside process_request_form_for_downloads
             if request_link:
                 request_url = request_link.get_attribute('href')
                 if request_url:
                     self.logger.log(f"Checking form for downloadable files: {name}", "info")
-                    count = self.process_request_form_for_downloads(request_url, name, mapped_page)
+                    count = self.process_request_form_for_downloads(request_url, name, page_number)
                     if count > 0:
                         downloaded_something = True
+                    
+                    # Check if all individuals for this row have been processed
+                    row_individuals = self.get_individuals_for_row(name)
+                    if row_individuals:
+                        all_processed = all(self.is_individual_seen(ind) for ind in row_individuals)
+                        if all_processed:
+                            self.mark_row_as_finished(name)
+                            self.logger.log(f"✓ All individuals processed, row marked as finished: {name}", "success")
             
             if not downloaded_something and not download_link and not request_link:
                 self.total_no_download += 1
@@ -911,8 +1034,12 @@ class OGEDirectDownloader:
     def run(self):
         """Main execution method."""
         try:
-            # Load mapping first
-            if not self.load_mapping():
+            # Load tracking data
+            if not self.load_seen_rows():
+                return
+            if not self.load_row_individuals():
+                return
+            if not self.load_finished_rows():
                 return
             
             self.setup_driver()
@@ -938,12 +1065,13 @@ class OGEDirectDownloader:
             
             # Save logs
             self.logger.save_csv_log()
-            self.logger.log_summary(self.total_downloaded, self.total_skipped, self.total_no_download)
+            self.logger.log_summary(self.total_downloaded, self.total_skipped, self.total_no_download, self.total_seen_skipped)
             
             # Final summary
             self.logger.log("=== DIRECT DOWNLOAD COMPLETE ===", "success")
             self.logger.log(f"Total files downloaded: {self.total_downloaded}", "info")
             self.logger.log(f"Total files skipped (already exist): {self.total_skipped}", "info")
+            self.logger.log(f"Total individuals skipped (already seen): {self.total_seen_skipped}", "info")
             self.logger.log(f"Rows without direct download: {self.total_no_download}", "info")
             self.logger.log(f"Files saved to: {self.downloads_root}", "info")
             
@@ -976,7 +1104,10 @@ def main():
     print("OGE Direct File Downloader")
     print("=" * 60)
     print(f"Pages to process: {START_PAGE} to {END_PAGE}")
-    print(f"Mapping file: {MAPPING_FILE}")
+    print(f"Tracking files:")
+    print(f"  - {SEEN_ROWS_FILE} (processed individuals)")
+    print(f"  - {ROW_INDIVIDUAL_FILE} (row-to-individuals mapping)")
+    print(f"  - {FINISHED_ROWS_FILE} (completed rows)")
     print(f"Downloads to: {DOWNLOADS_ROOT}")
     print("=" * 60)
     print()
@@ -985,8 +1116,12 @@ def main():
     print("   2. Filter by 'Transaction' type")
     print("   3. Sort by Name (A-Z)")
     print(f"   4. Navigate to pages {START_PAGE}-{END_PAGE}")
-    print("   5. Download ONLY directly available files (no form submission)")
-    print("   6. Organize files by Page/PersonName")
+    print("   5. Skip rows already fully processed")
+    print("   6. Extract all individuals from each row's popup (first time only)")
+    print("   7. Process each individual, skipping already-processed ones")
+    print("   8. Download ONLY directly available files (no form submission)")
+    print("   9. Organize files by individual: direct_downloads/<name>/")
+    print("   10. Mark rows as complete when all individuals processed")
     print()
     
     if not args.yes:
