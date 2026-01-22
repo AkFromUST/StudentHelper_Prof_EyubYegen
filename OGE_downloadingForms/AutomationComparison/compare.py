@@ -40,6 +40,10 @@ def _clean_target_folder_mapping(target_folder_mapping):
         k = k.lower()
         
         res[k] = v
+
+    print("--------------------------------cleaned target folder mapping--------------------------------")
+    print(res)
+    print("--------------------------------")
     return res
 
 def _clean_oge_people_their_total_files(oge_people_their_total_files):
@@ -50,11 +54,18 @@ def _clean_oge_people_their_total_files(oge_people_their_total_files):
         k = k.replace(" ", "")
         k = k.lower()
         res[k] = v
+
+    print("--------------------------------cleaned oge people their total files--------------------------------")
+    print(res)
+    print("--------------------------------")
     return res
+
+
 
 def compare_two_files(oge_people_their_total_files, cleaned_target_folder_mapping):
     stats = {}
     not_found_in_oge = {}
+    not_found_in_target = {}
 
     for k,v in cleaned_target_folder_mapping.items():
         #clean k
@@ -71,8 +82,11 @@ def compare_two_files(oge_people_their_total_files, cleaned_target_folder_mappin
                 print("\tOGE: ", oge_people_their_total_files[k])
                 print("\tTarget: ", v[0])
         
+    for k,v in oge_people_their_total_files.items():
+        if k not in cleaned_target_folder_mapping:
+            not_found_in_target[k] = v
 
-    return stats, not_found_in_oge
+    return stats, not_found_in_oge, not_found_in_target
 
 
 def map_to_student_RA(stats, cleaned_target_folder_mapping):
@@ -88,14 +102,14 @@ def map_to_student_RA(stats, cleaned_target_folder_mapping):
 
 cleaned_target_folder_mapping = _clean_target_folder_mapping(target_folder_mapping)
 cleaned_oge_people_their_total_files = _clean_oge_people_their_total_files(oge_people_their_total_files)
-stats,not_found_in_oge = compare_two_files(cleaned_oge_people_their_total_files, cleaned_target_folder_mapping)
+stats,not_found_in_oge, not_found_in_target = compare_two_files(cleaned_oge_people_their_total_files, cleaned_target_folder_mapping)
 student_RA, no_student_mapping = map_to_student_RA(stats, cleaned_target_folder_mapping)
 
 
 #print(student_RA)
-print(no_student_mapping)
 print("--------------------------------")
-print(not_found_in_oge)
+print(len(not_found_in_oge))
+print(len(not_found_in_target))
 
 #save the results to a json file
 FINALRESULTPATH = "results/comparison_results.json"
@@ -105,3 +119,7 @@ with open(FINALRESULTPATH, 'w', encoding='utf-8') as f:
 NOTFOUNDINOGEPATH = "results/not_found_in_oge.json"
 with open(NOTFOUNDINOGEPATH, 'w', encoding='utf-8') as f:
     json.dump(not_found_in_oge, f, indent=2, ensure_ascii=False)
+
+NOTFOUNDINTARGETPATH = "results/not_found_in_target.json"
+with open(NOTFOUNDINTARGETPATH, 'w', encoding='utf-8') as f:
+    json.dump(not_found_in_target, f, indent=2, ensure_ascii=False)
