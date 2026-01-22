@@ -14,3 +14,5 @@ OGE_downloadingForms/peopleToPage_actual.json
 OGE_downloadingForms/config.py
 OGE_downloadingForms/direct_download_progress.md
 OGE_downloadingForms/direct_download_log.csv
+OGE_downloadingForms/RA_collection/
+OGE_downloadingForms/DirectDownloads/direct_downloads/
