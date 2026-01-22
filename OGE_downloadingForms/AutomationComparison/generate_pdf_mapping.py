@@ -153,6 +153,10 @@ def generate_people_all_files():
     with open('oge_people_their_total_files.json', 'w', encoding='utf-8') as f:
         json.dump(final_res_last_name_only, f, indent=2, ensure_ascii=False)
 
+    #total files present in the oge_people_their_total_files.json file
+    total_files = sum(final_res_last_name_only.values())
+    print(f"Total files present in the oge_people_their_total_files.json file: {total_files}")
+
 
 def _clean_hashname(json_path):
     with open(json_path, 'r', encoding='utf-8') as f:

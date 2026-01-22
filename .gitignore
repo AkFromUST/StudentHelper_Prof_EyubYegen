@@ -16,3 +16,9 @@ OGE_downloadingForms/direct_download_progress.md
 OGE_downloadingForms/direct_download_log.csv
 OGE_downloadingForms/RA_collection/
 OGE_downloadingForms/DirectDownloads/direct_downloads/
+
+Matching_Task/venv/
+Matching_Task/__pycache__/
+Matching_Task/.DS_Store
+Matching_Task/joined_sample_us.parquet
+Matching_Task/unmatched_sample.csv
