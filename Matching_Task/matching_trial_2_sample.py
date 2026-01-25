@@ -208,6 +208,19 @@ try:
     """
     ]
 
+    blocking_rules = [ {
+       "blocking_rule": """
+                        l.lastname = r.lastname
+                        AND list_count(coalesce(l.keywords_tokens, [])) > 0
+                        AND list_count(coalesce(r.keywords_tokens, [])) > 0
+                        AND list_count(list_intersect(
+                            coalesce(l.keywords_tokens, []),
+                            coalesce(r.keywords_tokens, [])
+                        )) >= 1
+                        """,
+    "salting_partitions": 4
+    }]
+
 
     settings = SettingsCreator(
     link_type="link_only",

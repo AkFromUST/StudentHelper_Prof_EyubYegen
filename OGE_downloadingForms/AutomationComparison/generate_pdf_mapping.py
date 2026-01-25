@@ -133,6 +133,9 @@ def generate_people_all_files():
     with open(DIRECT_DOWNLOADS_PERSON_MAPPING_PATH, 'r') as f:
         direct_downloads_person_mapping = json.load(f)
 
+    print("total Direct Downloads are: ", sum(direct_downloads_person_mapping.values()))
+    print("total Requests are: ", sum(res.values()))
+
     for k,v in direct_downloads_person_mapping.items():
         #remove all _ from k and replace with a space
         k = k.replace('_', ' ')
@@ -142,12 +145,12 @@ def generate_people_all_files():
         else:
             res[k] += v
 
-    #clean
-    for k,v in all_last_name_people.items():
-        for ppl in v:
-            ppl = ppl.lower()
-            if ppl in res:
-                final_res_last_name_only[k] = final_res_last_name_only.get(k, 0) + res[ppl]
+    #lets clean res
+    for k,v in res.items():
+        k = k.split(",")[0]
+        k = k.lower()
+        final_res_last_name_only[k] = final_res_last_name_only.get(k, 0) + v
+
 
     #save the results to a json file
     with open('oge_people_their_total_files.json', 'w', encoding='utf-8') as f:
