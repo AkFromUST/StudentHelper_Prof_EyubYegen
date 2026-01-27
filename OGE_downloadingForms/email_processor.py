@@ -62,9 +62,10 @@ class EmailProcessor:
         self.matched_people: Dict[str, List[str]] = {}  # person_name -> list of filenames
         self.unmatched_documents: List[str] = []  # list of unmatched filenames
         
-        if not self.email_address or not self.app_password:
+        # Only require GMAIL_USERNAME; password is optional (some accounts don't need it)
+        if not self.email_address:
             raise ValueError(
-                "Missing credentials. Please set GMAIL_USERNAME and GMAIL_PASSWORD in config.py"
+                "Missing GMAIL_USERNAME. Please set GMAIL_USERNAME in config.py"
             )
     
     def log(self, message: str, level: str = "info"):
@@ -224,7 +225,11 @@ class EmailProcessor:
         try:
             self.log("Connecting to Gmail...")
             mail = imaplib.IMAP4_SSL("imap.gmail.com")
-            mail.login(self.email_address, self.app_password)
+            
+            # Use empty string if password is None
+            password = self.app_password if self.app_password else ""
+            mail.login(self.email_address, password)
+            
             self.log("Connected to Gmail", "success")
             return mail
         except Exception as e:
