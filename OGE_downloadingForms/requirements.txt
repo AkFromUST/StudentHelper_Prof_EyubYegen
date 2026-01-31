@@ -4,6 +4,5 @@ pandas>=2.0.0
 python-dotenv>=1.0.0
 
 # For email processor (Phase 2)
-thefuzz>=0.20.0
-python-Levenshtein>=0.23.0
-
+thefuzz
+python-Levenshtein
