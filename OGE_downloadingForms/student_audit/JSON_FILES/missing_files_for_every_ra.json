@@ -69,7 +69,8 @@
         "harris": 14,
         "henger": -1,
         "hartley": -2,
-        "Total Number of Files Missing (considering only positive values)": 14
+        "niland": 1,
+        "Total Number of Files Missing (considering only positive values)": 15
     },
     "RA Collection - Lai Chun Kiu - Page 19": {
         "hallett": 2,
@@ -98,7 +99,8 @@
         "hunter": -3,
         "hussain": -2,
         "hruby": -1,
-        "Total Number of Files Missing (considering only positive values)": 10
+        "saric": 2,
+        "Total Number of Files Missing (considering only positive values)": 12
     },
     "RA collection -  JIAO DI - Page 6": {
         "buchan": -3,
@@ -244,6 +246,7 @@
         "dunnigan": -2,
         "elliott": -1,
         "domenech": -1,
+        "kate": -8,
         "Total Number of Files Missing (considering only positive values)": 8
     },
     "RA collection - LI Junhui - Page 53": {
@@ -259,6 +262,7 @@
         "wolcott": -1,
         "winberg": 0,
         "workman": -1,
+        "shaw": 0,
         "Total Number of Files Missing (considering only positive values)": 10
     },
     "RA collection - Cayenne Tan - Page 36": {
@@ -367,7 +371,8 @@
         "topping": 1,
         "thompson": 9,
         "tata": 1,
-        "Total Number of Files Missing (considering only positive values)": 134
+        "greenfield": 7,
+        "Total Number of Files Missing (considering only positive values)": 141
     },
     "RA collection - Wong Ho Ching - Page 2": {
         "beard": 6,
@@ -388,6 +393,7 @@
         "atkins": -1,
         "bell": 29,
         "appleton": -1,
+        "lumish": 0,
         "Total Number of Files Missing (considering only positive values)": 88
     },
     "RA collection - Wong Ho Ching - Page 3": {
@@ -453,6 +459,7 @@
         "carter": 0,
         "chorle": -2,
         "cheng": -2,
+        "barr": 0,
         "Total Number of Files Missing (considering only positive values)": 0
     },
     "RA Collection - ZHANG Xuanrui - Page 9": {
@@ -535,6 +542,7 @@
         "gor": -1,
         "graves": 0,
         "greenblatt": -2,
+        "romero": -9,
         "Total Number of Files Missing (considering only positive values)": 10
     },
     "RA collection - Leong Deng Hung - Page 16": {
@@ -600,6 +608,7 @@
         "starks": 3,
         "storch": 2,
         "stone": 0,
+        "manning": 0,
         "Total Number of Files Missing (considering only positive values)": 7
     },
     "RA collection - Khushi Chandani - Page 48": {
@@ -613,6 +622,7 @@
         "sweeney": -1,
         "sumwalt": -1,
         "taglialatela": -1,
+        "ramnath": 0,
         "Total Number of Files Missing (considering only positive values)": 3
     },
     "RA Collection - Khushi Chandani - Page 46": {
@@ -627,6 +637,8 @@
         "shanks": -1,
         "shores": -1,
         "shukan": -1,
+        "chandler": 0,
+        "randall": 0,
         "Total Number of Files Missing (considering only positive values)": 14
     },
     "RA collection - SUNG, Wen-chien - Page 32": {
@@ -644,7 +656,8 @@
         "mason": 0,
         "massinga": 0,
         "matthews": 0,
-        "Total Number of Files Missing (considering only positive values)": 13
+        "katz": 1,
+        "Total Number of Files Missing (considering only positive values)": 14
     },
     "RA collection - SUNG, Wen-chien - Page 33": {
         "mcferran": 0,
@@ -724,6 +737,7 @@
         "lowry": -1,
         "lowman": -2,
         "macdonald": 1,
-        "Total Number of Files Missing (considering only positive values)": 11
+        "suarez": 15,
+        "Total Number of Files Missing (considering only positive values)": 26
     }
 }
