@@ -6,3 +6,5 @@ python-dotenv>=1.0.0
 # For email processor (Phase 2)
 thefuzz
 python-Levenshtein
+
+datefinder
