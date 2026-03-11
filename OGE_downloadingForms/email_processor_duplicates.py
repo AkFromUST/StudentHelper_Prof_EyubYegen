@@ -42,7 +42,7 @@ except ImportError:
 MAPPING_FILE = "peopleToPage.json"
 DOWNLOADS_ROOT = Path(__file__).parent / "OGE_Documents"  # ./OGE_Documents
 UNMATCHED_FOLDER = "_Unmatched"
-OGE_SENDER = "No_Reply/USOGE.OGEX5@oge.gov"
+OGE_SENDER = "201forms@oge.gov"
 
 # Output CSV files
 MATCHED_CSV = "matched_people_duplicates.csv"

@@ -18,6 +18,8 @@ OGE_downloadingForms/RA_collection/
 OGE_downloadingForms/DirectDownloads/direct_downloads/
 OGE_downloadingForms/RA Collection/
 OGE_downloadingForms/OGE_Documents_firstIter/
+OGE_downloadingForms/Automation_Script_Downloads_notMatched/
+OGE_downloadingForms/Automation_Script_Downloads_notMatched_Old_notfinished/
 
 Matching_Task/venv/
 Matching_Task/__pycache__/
