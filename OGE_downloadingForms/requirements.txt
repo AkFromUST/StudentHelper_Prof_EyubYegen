@@ -8,3 +8,4 @@ thefuzz
 python-Levenshtein
 
 datefinder
+openpyxl

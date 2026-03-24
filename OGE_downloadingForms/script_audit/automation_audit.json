@@ -223,7 +223,11 @@
         "David-Apol-2022-278.pdf",
         "David-Apol-2023-278.pdf",
         "David-Apol-2024-278.pdf",
-        "David-Apol-2025-278TERM.pdf"
+        "David-Apol-2025-278TERM.pdf",
+        "David-Fogel-12.13.2025-278T.pdf",
+        "David-Fogel-12.14.2025-278T.pdf",
+        "Fogel, David  final278.pdf",
+        "Fogel, David OGE-2025-237-CDIV.pdf"
     ],
     "apol, david office of the us trade representative, daeo": [
         "David-Apol-04.08.2020-278T.pdf",
@@ -244,10 +248,18 @@
         "Mari-C-Aponte-2024-278.pdf",
         "Mari-C-Aponte-2025-278TERM.pdf"
     ],
+    "appleton, seth department of housing and urban development, assistant secretary for policy development & research": [
+        "Seth-Appleton-2020-278.pdf",
+        "Seth-Appleton-2020-278TERM.pdf"
+    ],
     "aronowitz, daniel department of labor, assistant secretary for employee benefits security": [
         "Aronowitz, Daniel  final278.pdf",
         "Danel-Aronowitz-12.16.2025-278T.pdf",
         "Danel-Aronowitz-12.31.2025-278T.pdf"
+    ],
+    "ashooh, richard e department of commerce, assistant secretary for export administration": [
+        "Richard-E-Ashooh-2019-278.pdf",
+        "Richard-E-Ashooh-2020-278TERM.pdf"
     ],
     "atkins, melea department of health and human services, certificate of divestiture": [
         "Atkins, Melea OGE-2023-165.pdf"
@@ -1046,6 +1058,7 @@
     ],
     "buchan, richard d department of state, ambassador to morocco (kingdom of)": [
         "Buchan, III, Richard Duke  final278.pdf",
+        "Richard-D-Buchan-01.05.2026-278T.pdf",
         "Richard-D-Buchan-01.14.2020-278T.pdf",
         "Richard-D-Buchan-02.11.2019-278T.pdf",
         "Richard-D-Buchan-06.27.2020-278T.pdf",
@@ -1673,6 +1686,7 @@
         "Caroline-Crenshaw-2023-278.pdf",
         "Caroline-Crenshaw-2024-278.pdf",
         "Caroline-Crenshaw-2025-278ANNU.pdf",
+        "Caroline-Crenshaw-2026-278TERM.pdf",
         "Crenshaw, Caroline  final278.pdf",
         "Crenshaw, Caroline OGE-2020-072, 073 & 074.pdf"
     ],
@@ -2072,6 +2086,12 @@
         "Dickerson, Allen  final278.pdf"
     ],
     "dickman, martin j railroad retirement board, inspector general": [
+        "Martin-J-Dickman-02.02.2023-278T(1).pdf",
+        "Martin-J-Dickman-02.02.2023-278T.pdf",
+        "Martin-J-Dickman-04.26.2021-278T.pdf",
+        "Martin-J-Dickman-04.28.2023-278T.pdf",
+        "Martin-J-Dickman-05.10.2023-278T.pdf",
+        "Martin-J-Dickman-05.13.2022-278T.pdf",
         "Martin-J-Dickman-05.27.2022-278T.pdf",
         "Martin-J-Dickman-06.02.2022-278T(2).pdf",
         "Martin-J-Dickman-06.02.2022-278T.pdf",
@@ -2081,7 +2101,11 @@
         "Martin-J-Dickman-07.12.2023-278T.pdf",
         "Martin-J-Dickman-08.01.2023-278T.pdf",
         "Martin-J-Dickman-10.03.2022-278T.pdf",
-        "Martin-J-Dickman-2020-278.pdf"
+        "Martin-J-Dickman-11.02.2022-278T.pdf",
+        "Martin-J-Dickman-2020-278.pdf",
+        "Martin-J-Dickman-2023-278.pdf",
+        "Martin-J-Dickman-2024-278.pdf",
+        "Martin-J-Dickman-2024-278TERM.pdf"
     ],
     "dohman, ramona l department of justice, u.s. marshal minnesota": [
         "Ramona-L-Dohman-11.30.2020-278T.pdf",
@@ -2195,12 +2219,47 @@
         "John-C-Einstman-2024-278.pdf",
         "John-C-Einstman-2025-278ANNU.pdf"
     ],
+    "eisenberg, john a white house office, deputy assistant to president & nsc legal advisor & deputy counsel to president for national security affairs": [
+        "John-A-Eisenberg-2020-278.pdf",
+        "John-A-Eisenberg-2021-278TERM.pdf"
+    ],
+    "eisenberg, lewis m department of state, ambassador to italian republic & republic of san marino": [
+        "Lewis-M-Eisenberg-01.28.2021-278T.pdf",
+        "Lewis-M-Eisenberg-03.17.2020-278T.pdf",
+        "Lewis-M-Eisenberg-04.09.2020-278T.pdf",
+        "Lewis-M-Eisenberg-05.05.2020-278T.pdf",
+        "Lewis-M-Eisenberg-06.11.2020-278T.pdf",
+        "Lewis-M-Eisenberg-07.01-2020-278T.pdf",
+        "Lewis-M-Eisenberg-10.26.2020-278T.pdf",
+        "Lewis-M-Eisenberg-11.09.2020-278T.pdf",
+        "Lewis-M-Eisenberg-12.17.2020-278T.pdf",
+        "Lewis-M-Eisenberg-12.23.2020-278T.pdf",
+        "Lewis-M-Eisenberg-2020-278.pdf",
+        "Lewis-M-Eisenberg-2021-278TERM.pdf",
+        "Lews-M-Eisenberg-08.06.2020-278T.pdf",
+        "Lews-M-Eisenberg-09.17.2020-278T.pdf"
+    ],
+    "eisenberg, lynn office of personnel management, daeo": [
+        "Lynn-Eisenberg-11.14.2021-278T.pdf",
+        "Lynn-Eisenberg-2021-278NE.pdf",
+        "Lynn-Eisenberg-2022-278.pdf"
+    ],
+    "elliott, howard r department of transportation, administrator, pipeline & hazardous materials safety administration": [
+        "Howard-R-Elliott-05.22.2020-278T.pdf",
+        "Howard-R-Elliott-2020-278.pdf",
+        "Howard-R-Elliott-2021-278TERM.pdf"
+    ],
     "elliott, peter j department of justice, u.s. marshal ohio northern district": [
         "Peter-J-Elliott-04.26.2024-278T.pdf",
         "Peter-J-Elliott-05.05.2025-278T.pdf",
         "Peter-J-Elliott-06.05.2025-278T.pdf",
         "Peter-J-Elliott-08.28.2025-278T.pdf",
-        "Peter-J-Elliott-2020-278.pdf"
+        "Peter-J-Elliott-2020-278.pdf",
+        "Peter-J-Elliott-2021-278.pdf",
+        "Peter-J-Elliott-2022-278.pdf",
+        "Peter-J-Elliott-2023-278.pdf",
+        "Peter-J-Elliott-2024-278.pdf",
+        "Peter-J-Elliott-2025-278ANNU.pdf"
     ],
     "elnahal, shereef department of veterans affairs, under secretary for health": [
         "Elnahal, Shereef  AMENDEDfinal278.pdf",
@@ -2245,6 +2304,28 @@
         "William-J-Emanuel-2020-278.pdf",
         "William-J-Emanuel-2021-278.pdf",
         "William-J-Emanuel-2021-278TERM.pdf"
+    ],
+    "esparza, jaime department of justice, u.s. attorney texas western district": [
+        "Esparza, Jaime  final278.pdf",
+        "Jaime-Esparza-01.24.2025-278T.pdf",
+        "Jaime-Esparza-05.02.2024-278T.pdf",
+        "Jaime-Esparza-2024-278.pdf",
+        "Jaime-Exparza-03.04.2024-278T.pdf",
+        "Jaime-Exparza-03.06.2024-278T.pdf",
+        "Jamie-Esparza-06.05.2024-278T.pdf",
+        "Jamie-Esparza-07.05.2023-278T.pdf",
+        "Jamie-Esparza-07.19.2023-278T.pdf",
+        "Jamie-Esparza-09.14.2023-278T.pdf",
+        "Jamie-Esparza-12.01.2023-278T.pdf",
+        "Jamie-Esparza-2025-278TERM.pdf"
+    ],
+    "estevez, alan f department of commerce, under secretary for industry & security": [
+        "Alan-F-Estevez-01.02.2025-278T.pdf",
+        "Alan-F-Estevez-06.07.2024-278T.pdf",
+        "Alan-F-Estevez-2023-278.pdf",
+        "Alan-F-Estevez-2024-278.pdf",
+        "Alan-F-Estevez-2025-278TERM.pdf",
+        "Estevez, Alan F.  final278.pdf"
     ],
     "evanina, william r office of director of national intelligence, director, national counterintelligence security center": [
         "William-R-Evanina-11.19.2020-278T.pdf",
@@ -2298,11 +2379,55 @@
         "Gerald-W-Fauth-2023-278.pdf",
         "Gerald-W-Fauth-2024-278TERM.pdf"
     ],
+    "feitel, robert j nuclear regulatory commission, inspector general": [
+        "Feitel, Robert J. OGE-2020-051.pdf",
+        "Robert-J-Feitel-01.12.2024-278T.pdf",
+        "Robert-J-Feitel-01.29.2021-278T.pdf",
+        "Robert-J-Feitel-01.31.2022-278T.pdf",
+        "Robert-J-Feitel-02.05.2025-278T.pdf",
+        "Robert-J-Feitel-02.13.2024-278T.pdf",
+        "Robert-J-Feitel-02.26.2022-278.pdf",
+        "Robert-J-Feitel-03.14.2025-278T.pdf",
+        "Robert-J-Feitel-03.16.2023-278T.pdf",
+        "Robert-J-Feitel-04.11.2025-278T.pdf",
+        "Robert-J-Feitel-04.24.2024-278T.pdf",
+        "Robert-J-Feitel-04.26.2022-278T.pdf",
+        "Robert-J-Feitel-05.04.2023-278T.pdf",
+        "Robert-J-Feitel-05.08.2025-278T.pdf",
+        "Robert-J-Feitel-06.16.2025-278T.pdf",
+        "Robert-J-Feitel-07.08.2020-278T.pdf",
+        "Robert-J-Feitel-07.14.2023-278T.pdf",
+        "Robert-J-Feitel-07.14.2025-278T.pdf",
+        "Robert-J-Feitel-07.21.2024-278T.pdf",
+        "Robert-J-Feitel-07.27.2022-278T.pdf",
+        "Robert-J-Feitel-08.01.2022-278T.pdf",
+        "Robert-J-Feitel-08.03.2023-278T.pdf",
+        "Robert-J-Feitel-08.08.2022-278T.pdf",
+        "Robert-J-Feitel-08.14.2024-278T.pdf",
+        "Robert-J-Feitel-08.22.2022-278T.pdf",
+        "Robert-J-Feitel-08.30.2021-278T.pdf",
+        "Robert-J-Feitel-09.11.2024-278T.pdf",
+        "Robert-J-Feitel-09.13.2022-278T.pdf",
+        "Robert-J-Feitel-10.20.2025-278T.pdf",
+        "Robert-J-Feitel-11.29.2022-278T.pdf",
+        "Robert-J-Feitel-12.20.2024-278T.pdf",
+        "Robert-J-Feitel-2021-278.pdf",
+        "Robert-J-Feitel-2022-278.pdf",
+        "Robert-J-Feitel-2023-278.pdf",
+        "Robert-J-Feitel-2024-278.pdf",
+        "Robert-J-Feitel-2025-278ANNU.pdf",
+        "Robert-J-Fietel-12.01.2021-278T.pdf"
+    ],
     "feldman, peter a consumer product safety commission, commissioner": [
         "Peter-A-Feldman-04.17.2024-278T.pdf",
         "Peter-A-Feldman-05.25.2023-278T.pdf",
         "Peter-A-Feldman-11.07.2024-278T.pdf",
-        "Peter-A-Feldman-2020-278.pdf"
+        "Peter-A-Feldman-2020-278.pdf",
+        "Peter-A-Feldman-2021-278.pdf",
+        "Peter-A-Feldman-2022-278.pdf",
+        "Peter-A-Feldman-2023-278.pdf",
+        "Peter-A-Feldman-2024-278.pdf",
+        "Peter-A-Feldman-2025-278ANNU.pdf"
     ],
     "feldman, robert e federal deposit insurance corporation, daeo": [
         "Robert-E-Feldman-07.31.2020-278T.pdf",
@@ -2444,15 +2569,33 @@
         "David-T-Fishcher-07.13.2020-278T.pdf",
         "David-T-Fisher-09.10.2020-278T.pdf"
     ],
+    "fischmann, elizabeth national credit union administration, daeo": [
+        "Elizabeth-Fischmann-02.07.2022-278T.pdf",
+        "Elizabeth-Fischmann-04.09.2021-278T.pdf",
+        "Elizabeth-Fischmann-2021-278 (1).pdf",
+        "Elizabeth-Fischmann-2022-278.pdf",
+        "Elizabeth-Fischmann-2023-278.pdf",
+        "Elizabeth-Fischmann-2024-278TERM.pdf"
+    ],
     "fisher, ann postal regulatory commission, commissioner": [
+        "Ann-Fisher-02.25.2021-278T.pdf",
+        "Ann-Fisher-11.19.2020-278T.pdf",
         "Ann-Fisher-2020-278.pdf",
         "Ann-Fisher-2021-278.pdf",
         "Ann-Fisher-2022-278.pdf",
         "Ann-Fisher-2023-278.pdf",
         "Ann-Fisher-2024-278.pdf"
     ],
+    "fisher, ann postal regulatory commission, commissioner 2": [
+        "Ann-Fisher-2025-278.pdf",
+        "Fisher Ann  final278.pdf"
+    ],
+    "fisher, arthur department of state, ambassador to austria (republic of)": [
+        "Fisher, Arthur  final278.pdf"
+    ],
     "fisher, julie d department of state, ambassador to belarus (republic of)": [
-        "Fisher, Julie  final278.pdf"
+        "Fisher, Julie  final278.pdf",
+        "Fisher, Julie D.  final278.pdf"
     ],
     "fisher, julie d department of state, ambassador to cyprus (republic of)": [
         "Julie-D-Fisher-2024-278.pdf",
@@ -2742,6 +2885,33 @@
     "gakhar, bindu office of administration, certificate of divestiture": [
         "Gakhar, Bindu OGE-2024-130.pdf"
     ],
+    "gakhar, bindu office of administration, chief of enterprise applications": [
+        "Bindu-Gakhar-07.26.2024-278T.pdf",
+        "Bindu-Gakhar-2024-278NE.pdf",
+        "Bindu-Gakhar-2025-278TERM.pdf"
+    ],
+    "garber, judith g department of state, ambassador to cyprus (republic of)": [
+        "Judith-G-Garber-04.05.2021-278T.pdf",
+        "Judith-G-Garber-11.02.2022-278T.pdf",
+        "Judith-G-Garber-11.10.2020-278T.pdf",
+        "Judith-G-Garber-11.29.2021-278T.pdf",
+        "Judith-G-Garber-2020-278.pdf",
+        "Judith-G-Garber-2021-278.pdf",
+        "Judith-G-Garber-2022-278.pdf",
+        "Judith-G-Garber-2022-278TERM.pdf"
+    ],
+    "garrish, theodore department of energy, assistant secretary for international affairs": [
+        "Theodore-Garrish-01.14.2026-278T.pdf",
+        "Theodore-Garrish-07.11.2020-278T.pdf",
+        "Theodore-Garrish-07.13.2020-278T.pdf",
+        "Theodore-Garrish-08.29.2020-278T.pdf",
+        "Theodore-Garrish-11.17.2025-278T.pdf",
+        "Theodore-Garrish-2020-278.pdf",
+        "Theodore-Garrish-2021-278TERM.pdf"
+    ],
+    "garrish, theodore department of energy, assistant secretary for nuclear energy": [
+        "Garrish, Theodore J.  final278.pdf"
+    ],
     "gartner, eric s department of justice, u.s. marshal pennsylvania eastern district": [
         "Eric-S-Gartner-01.03.2025-278T.pdf",
         "Eric-S-Gartner-04.15.2024-278T.pdf",
@@ -2795,6 +2965,30 @@
         "Kenneth-S-George-12.10.2020-278T.pdf",
         "Kenneth-S-George-2020-278.pdf",
         "Kenneth-S-George-2021-278TERM.pdf"
+    ],
+    "gibbons, john department of justice, u.s. marshal massachusetts": [
+        "John-Gibbons-01.22.2021-278T.pdf",
+        "John-Gibbons-03.29.2021-278T.pdf",
+        "John-Gibbons-04.03.2020-278T.pdf",
+        "John-Gibbons-04.09.2020-278T.pdf",
+        "John-Gibbons-04.23.2020-278T.pdf",
+        "John-Gibbons-05.05.2020-278T.pdf",
+        "John-Gibbons-05.06.2020-278T.pdf",
+        "John-Gibbons-05.12.2020-278T.pdf",
+        "John-Gibbons-05.13.2020-278T.pdf",
+        "John-Gibbons-05.18.2020-278T.pdf",
+        "John-Gibbons-05.27.2020-278T.pdf",
+        "John-Gibbons-06.07.2021-278T.pdf",
+        "John-Gibbons-07.12.2021-278T.pdf",
+        "John-Gibbons-07.23.2020-278T.pdf",
+        "John-Gibbons-09.11.2020-278T.pdf",
+        "John-Gibbons-10.15.2020-278T.pdf",
+        "John-Gibbons-2020-278.pdf",
+        "John-Gibbons-2020-278_1.pdf",
+        "John-Gibbons-2021-278.pdf",
+        "John-Gibbons-2021-278TERM.pdf",
+        "John-Gibbons-2021-278TERM_1.pdf",
+        "John-Gibbons-2021-278_1.pdf"
     ],
     "gibson, susan s national reconnaissance office, inspector general": [
         "Susan-S-Gibson-05.26.2021-278T.pdf",
@@ -2930,6 +3124,58 @@
         "Michael-C-Gonzales-2023-278.pdf",
         "Michael-C-Gonzales-2024-278.pdf",
         "Michael-C-Gonzales-2025-278.pdf"
+    ],
+    "gonzales, rebecca e department of state, ambassador to lesotho (kingdom of)": [
+        "Rebecca-E-Gonzales-09.30.2021-278T.pdf",
+        "Rebecca-E-Gonzales-2020-278.pdf",
+        "Rebecca-E-Gonzales-2021-278.pdf",
+        "Rebecca-E-Gonzales-2022-278.pdf"
+    ],
+    "gonzales, rebecca e department of state, director, office of foreign missions": [
+        "Gonzales, Rebecca E.  final278.pdf",
+        "Rebecca-E-Gonzales-2023-278.pdf",
+        "Rebecca-E-Gonzales-2024-278.pdf",
+        "Rebecca-E-Gonzales-2025-278ANNU.pdf"
+    ],
+    "gor, sergio department of state, ambassador to india": [
+        "Gor, Sergio  final278.pdf",
+        "Sergio-Gor-2025-278ANNU.pdf"
+    ],
+    "gor, sergio white house office, director of the office of presidential personnel": [
+        "Sergio-Gor-05.20.2025-278T.pdf"
+    ],
+    "gould, jonathan department of the treasury, comptroller of the currency": [
+        "Gould, Jonathan  final278.pdf"
+    ],
+    "graham, gwen department of education, assistant secretary for legislation & congressional affairs": [
+        "Graham, Gwen  final278.pdf",
+        "Gwen-Graham-10.13.2022-278T.pdf",
+        "Gwen-Graham-2022-278.pdf",
+        "Gwen-Graham-2023-278.pdf",
+        "Gwen-Graham-2024-278.pdf",
+        "Gwen-Granham-2025-278TERM.pdf"
+    ],
+    "graham, michael e national transportation safety board, member": [
+        "Michael-E-Graham-01.24.2022-278T.pdf",
+        "Michael-E-Graham-02.19.2022-278T.pdf",
+        "Michael-E-Graham-05.06.2025-278T.pdf",
+        "Michael-E-Graham-06.10.2020-278T.pdf",
+        "Michael-E-Graham-06.22.2020-278T.pdf",
+        "Michael-E-Graham-07.05.2022-278T.pdf",
+        "Michael-E-Graham-07.06.2021-278T.pdf",
+        "Michael-E-Graham-08.08.2022-278T.pdf",
+        "Michael-E-Graham-08.20.2022-278T.pdf",
+        "Michael-E-Graham-09.18.2022-278T.pdf",
+        "Michael-E-Graham-10.07.2021-278T.pdf",
+        "Michael-E-Graham-10.15.2022-278T.pdf",
+        "Michael-E-Graham-2021-278.pdf",
+        "Michael-E-Graham-2022-278.pdf",
+        "Michael-E-Graham-2023-278.pdf",
+        "Michael-E-Graham-2024-278.pdf",
+        "Michael-E-Graham-2025-278ANNU.pdf"
+    ],
+    "graham, michael e national transportation safety board, member 2": [
+        "Graham, Michael E.  final278.pdf"
     ],
     "graves, donet d department of commerce, deputy secretary": [
         "Donet-D-Graves-08.17.2021-278T.pdf",
@@ -3595,7 +3841,8 @@
         "Andrew-Hunter-2024-278.pdf",
         "Andrew-Hunter-2025-278TERM.pdf",
         "Andrew-P-Hunter-11.13.2023-278T.pdf",
-        "Hunter, Andrew  final278.pdf"
+        "Hunter, Andrew  final278.pdf",
+        "Puzder, Andrew OGE-2025-223-CDIV.pdf"
     ],
     "hunter, caroline c federal election commission, commissioner": [
         "Caroline-C-Hunter-06.20.2025-278T.pdf",
@@ -4748,6 +4995,35 @@
         "Barbara-A-Leaf-2025-278TERM.pdf",
         "Leaf, Barbara A.  final278.pdf"
     ],
+    "leblanc, travis privacy and civil liberties oversight board, member": [
+        "Travis-LeBlanc-06.04.2024-278T.pdf",
+        "Travis-LeBlanc-2020-278.pdf",
+        "Travis-LeBlanc-2021-278.pdf",
+        "Travis-LeBlanc-2022-278.pdf"
+    ],
+    "leblanc, travis privacy and civil liberties oversight board, member 2": [
+        "LeBlanc, Travis  final278.pdf",
+        "Travis-LeBlanc-01.06.2024-278T.pdf",
+        "Travis-LeBlanc-01.06.2025-278T.pdf",
+        "Travis-LeBlanc-02.05.2024-278T.pdf",
+        "Travis-LeBlanc-03.10.2024-278T.pdf",
+        "Travis-LeBlanc-04.04.2024-278T.pdf",
+        "Travis-LeBlanc-04.09.2023-278T.pdf",
+        "Travis-LeBlanc-05.05.2023-278T.pdf",
+        "Travis-LeBlanc-05.12.2024-278T.pdf",
+        "Travis-LeBlanc-06.08.2023-278T.pdf",
+        "Travis-LeBlanc-07.02.2023-278T.pdf",
+        "Travis-LeBlanc-08.03.2023-278T.pdf",
+        "Travis-LeBlanc-08.10.2024-278T.pdf",
+        "Travis-LeBlanc-09.05.2024-278T.pdf",
+        "Travis-LeBlanc-10.02.2024-278T.pdf",
+        "Travis-LeBlanc-10.07.2023-278T.pdf",
+        "Travis-LeBlanc-11.05.2024-278T.pdf",
+        "Travis-LeBlanc-12.08.2023-278T.pdf",
+        "Travis-LeBlanc-12.08.2024-278T.pdf",
+        "Travis-LeBlanc-2023-278.pdf",
+        "Travis-LeBlanc-2024-278.pdf"
+    ],
     "lelling, andrew department of justice, u.s. attorney massachusetts": [
         "Andrew-Lelling-10.08.2020-278T.pdf",
         "Andrew-Lelling-2020-278.pdf",
@@ -4892,6 +5168,7 @@
         "Deborah-Lipstadt-10.05.2023-278T.pdf",
         "Deborah-Lipstadt-2023-278.pdf",
         "Deborah-Lipstadt-2024-278.pdf",
+        "Deborah-Lipstadt-2025-278TERM.pdf",
         "Lipstadt, Deborah  final278.pdf"
     ],
     "litzenberger, earle d department of state, ambassador to azerbaijan (republic of)": [
@@ -4912,6 +5189,7 @@
         "Kelly-Loeffler-04.01.2025-278T.pdf",
         "Kelly-Loeffler-07.15.2025-278T.pdf",
         "Kelly-Loeffler-08.25.2025-278T.pdf",
+        "Kelly-Loeffler-11.21.2025-278T.pdf",
         "Loeffler, Kelly  final278.pdf",
         "Loeffler, Kelly OGE-2025-049 & 050.pdf"
     ],
@@ -5384,6 +5662,9 @@
         "Ervin-J-Massinga-2025-278.pdf",
         "Massinga, Ervin J.  final278.pdf"
     ],
+    "matthew, kathryn k institute of museum and library services, director": [
+        "Kathryn-K-Matthew-2020-278TERM.pdf"
+    ],
     "matthews, earl g department of defense/office of the secretary, general counsel": [
         "Matthews, G. Earl  final278.pdf"
     ],
@@ -5573,6 +5854,20 @@
         "Jonathan-McKernan-2024-278.pdf",
         "Jonathan-McKernan-2025-278TERM.pdf"
     ],
+    "mcswain, william m department of justice, u.s. attorney pennsylvania eastern district": [
+        "William-M-McSwain-01.13.2021-278T.pdf",
+        "William-M-McSwain-03.10.2020-278T.pdf",
+        "William-M-McSwain-04.13.2020-278T.pdf",
+        "William-M-McSwain-05.11.2020-278T.pdf",
+        "William-M-McSwain-06.12.2020-278T.pdf",
+        "William-M-McSwain-08.10.2020-278T.pdf",
+        "William-M-McSwain-09.14..2020-278T.pdf",
+        "William-M-McSwain-10.31.2020-278T.pdf",
+        "William-M-McSwain-11.16.2020-278T.pdf",
+        "William-M-McSwain-12.14.2020-278T.pdf",
+        "William-M-McSwain-2020-278.pdf",
+        "William-M-McSwain-2021-278TERM.pdf"
+    ],
     "meadows, mark white house office, chief of staff": [
         "Mark-Meadows-04.29.2020-278T.pdf",
         "Mark-Meadows-12.08.2020-278T.pdf",
@@ -5580,14 +5875,28 @@
         "Meadows, Mark  final278.pdf"
     ],
     "meehan, bernadette department of state, ambassador to chile (republic of)": [
-        "Meehan, Bernadette   final278.pdf"
+        "Bernadette-Meehan-09.09.2022-278T.pdf",
+        "Bernadette-Meehan-2023-278.pdf",
+        "Bernadette-Meehan-2024-278.pdf",
+        "Bernadette-Meehan-2025-278TERM.pdf",
+        "Meehan, Bernadette   final278.pdf",
+        "Meehan, Bernadette OGE-2022-164 & 165.pdf"
     ],
     "melroy, pamela national aeronautics and space administration, deputy administrator": [
+        "Melroy, Pamela A.  final278.pdf",
         "Pamela-Melroy-03.24.2024-278T.pdf",
+        "Pamela-Melroy-12.19.2022-278T.pdf",
         "Pamela-Melroy-2022-278.pdf",
         "Pamela-Melroy-2023-278.pdf",
         "Pamela-Melroy-2024-278.pdf",
         "Pamela-Melroy-2025-278TERM.pdf"
+    ],
+    "menezes, mark w department of energy, under secretary": [
+        "Mark-W-Menezes-04.18.2020-278T.pdf",
+        "Mark-W-Menezes-05.29.2020-278T.pdf",
+        "Mark-W-Menezes-07.20.2020-278T.pdf",
+        "Mark-W-Menezes-11.08.2020-278T.pdf",
+        "Mark-W-Menezes-2020-278.pdf"
     ],
     "merrick, nicholas a department of state, ambassador to czech republic": [
         "Merrick, Nicholas  final278.pdf",
@@ -5596,10 +5905,17 @@
     ],
     "mersinger, summer commodity futures trading commission, commissioner": [
         "Mersinger, Summer  final278.pdf",
+        "Mersinger, Summer  final278_1.pdf",
         "Summer-Mersinger-02.05.2025-278T.pdf",
         "Summer-Mersinger-02.20.2024-278T.pdf",
+        "Summer-Mersinger-2023-278.pdf",
         "Summer-Mersinger-2024-278.pdf",
         "Summer-Messinger-2025-278ANNTERM.pdf"
+    ],
+    "mersinger, summer commodity futures trading commission, commissioner 2": [
+        "Summer-Mersinger-02.05.2025-278T.pdf",
+        "Summer-Mersinger-02.20.2024-278T.pdf",
+        "Summer-Mersinger-2024-278.pdf"
     ],
     "merten, kenneth h department of state, ambassador to bulgaria (republic of)": [
         "Kenneth-H-Merten-01.15.2025-278T.pdf",
@@ -5623,6 +5939,20 @@
         "Kenneth-H-Merten-2025-278TERM.pdf",
         "Merten, Kenneth  final278.pdf",
         "Merten, Kenneth OGE-2023-017.pdf"
+    ],
+    "meyer, alexander white house office, director, intergovernmental affairs": [
+        "Alexander-Meyer-2025-278NE.pdf"
+    ],
+    "meyer, eric department of state, ambassador to democratic socialist republic of sri lanka": [
+        "Meyer, Eric  final278.pdf"
+    ],
+    "meyer, jonathan department of homeland security, general counsel": [
+        "Jonanthan-Meyer-2024-278TERM.pdf",
+        "Jonathan-Berry-12.19.2025-278T.pdf",
+        "Jonathan-E-Meyer-2022-278.pdf",
+        "Jonathan-Meyer-02.01.2022-278T.pdf",
+        "Jonathan-Meyer-2023-278.pdf",
+        "Jonathan-Meyer-2024-278.pdf"
     ],
     "milhiser, john c department of justice, u.s. attorney illinois central district": [
         "John-C-Milhiser-02.04.2021-278T.pdf",
@@ -6119,6 +6449,24 @@
         "Eric-G-Nelson-2021-278.pdf",
         "Eric-G-Nelson-2022-278.pdf"
     ],
+    "nesvik, brian department of the interior, director, u.s. fish & wildlife service": [
+        "Brian-Nesvik-10.20.2025-278T.pdf",
+        "Nesvik, Brian OGE-2025-214-CDIV.pdf",
+        "Nesvik, Brian R.  final278.pdf"
+    ],
+    "nevins, kristan k white house office, cabinet secretary": [
+        "Kristan-K-Nevins-09.18.2020-278T.pdf",
+        "Kristan-K-Nevins-2020-278.pdf",
+        "Kristan-K-Nevins-2021-278TERM.pdf"
+    ],
+    "neyman, bethany l office of administration, chief administrative officer": [
+        "Bethany-L-Neyman-06.22.2025-278T.pdf",
+        "Bethany-L-Neyman-06.26.2025-278T.pdf",
+        "Bethany-L-Neyman-07.30.2025-278T.pdf",
+        "Bethany-L-Neyman-08.20.2025-278T.pdf",
+        "Bethany-L-Neyman-10.20.2025-278T.pdf",
+        "Bethany-L-Neyman-2025-278NEDRAFT.pdf"
+    ],
     "nides, tom department of state, ambassador to israel (state of)": [
         "Nides, Thomas  final278.pdf",
         "Nides, Thomas OGE-2021-239 & 240.pdf",
@@ -6177,6 +6525,37 @@
         "Ali-Nouri-12.14.2023-278T.pdf",
         "Ali-Nouri-2024-278.pdf",
         "Ali-Nouri-2024-278TERM.pdf"
+    ],
+    "noyes, julieta v department of state, assistant secretary for population, refugees & migration": [
+        "Julieta-V-Noyes-01.02.2023-278T.pdf",
+        "Julieta-V-Noyes-01.03.2024-278T.pdf",
+        "Julieta-V-Noyes-01.20.2024-278T.pdf",
+        "Julieta-V-Noyes-01.25.2023-278T.pdf",
+        "Julieta-V-Noyes-01.30.2024-278T.pdf",
+        "Julieta-V-Noyes-02.28.2024-278T.pdf",
+        "Julieta-V-Noyes-03.14.2023-278T.pdf",
+        "Julieta-V-Noyes-04.01.2023-278T.pdf",
+        "Julieta-V-Noyes-04.03.2024-278T.pdf",
+        "Julieta-V-Noyes-05.30.2024-278T.pdf",
+        "Julieta-V-Noyes-06.05.2023-278T.pdf",
+        "Julieta-V-Noyes-07.01.2023-278T.pdf",
+        "Julieta-V-Noyes-07.11.2024-278T.pdf",
+        "Julieta-V-Noyes-08.02.2023-278T.pdf",
+        "Julieta-V-Noyes-08.21.2024-278T.pdf",
+        "Julieta-V-Noyes-08.31.2022-278T.pdf",
+        "Julieta-V-Noyes-09.06.2023-278T.pdf",
+        "Julieta-V-Noyes-09.30.2022-278T.pdf",
+        "Julieta-V-Noyes-10.03.2024-278T.pdf",
+        "Julieta-V-Noyes-10.26.2024-278T.pdf",
+        "Julieta-V-Noyes-10.29.2022-278T.pdf",
+        "Julieta-V-Noyes-11.01.2023-278T.pdf",
+        "Julieta-V-Noyes-11.30.2022-278T.pdf",
+        "Julieta-V-Noyes-12.01.2023-278T.pdf",
+        "Julieta-V-Noyes-2023-278.pdf",
+        "Julieta-V-Noyes-2024-278.pdf",
+        "Julieta-V-Noyes-2024-278TERM.pdf",
+        "Julieta-V-Noyes05.01.2023-278T.pdf",
+        "Noyes, Julieta Valls  final278.pdf"
     ],
     "o'brien, james department of state, assistant secretary for european & eurasian affairs": [
         "James-O'Brien-2025-278TERM.pdf",
@@ -6239,10 +6618,12 @@
         "John-Ohlweiler-2022-278T.pdf",
         "John-Ohlweiler-2023-278.pdf",
         "John-Ohlweiler-2024-278.pdf",
-        "John-Ohlweiler-2025-278ANNU.pdf"
+        "John-Ohlweiler-2025-278ANNU.pdf",
+        "John-Ohlweiler-2025-278TERM.pdf"
     ],
     "oliver davis, valeria rae department of housing and urban development, inspector general": [
         "OLIVER DAVIS VALERIA - PAS_DAEO - Periodic Transaction  - 278-T - 2023 -\t 2023-05-15 (1).pdf",
+        "OLIVER DAVIS VALERIA - PAS_DAEO - Periodic Transaction  - 278-T - 2023 -\r\n\t 2023-05-15 (1).pdf",
         "Valeria-Oliver-Davis-12.19.2023-278T.pdf",
         "Valeria-R-Oliver-03.17.2020-278T.pdf",
         "Valeria-Rae-Oliver-Davis-01.19.2022-278T.pdf",
@@ -6278,6 +6659,31 @@
         "Eric-Olshan-2024-278.pdf",
         "Eric-Olshan-2025-278TERM.pdf",
         "Olshan, Eric G.  final278.pdf"
+    ],
+    "ostfield, marc l department of state, ambassador to paraguay (republic of)": [
+        "Marc-L-Ostfield-02.11.2024-278T.pdf",
+        "Marc-L-Ostfield-03.23.2024-278T.pdf",
+        "Marc-L-Ostfield-08.04.2024-278T.pdf",
+        "Marc-L-Ostfield-2023-278.pdf",
+        "Marc-L-Ostfield-2024-278.pdf",
+        "Marc-L-Ostfield-2025-278ANNU.pdf",
+        "Ostfield, Marc  final278.pdf"
+    ],
+    "otting, joseph m department of the treasury, comptroller of the currency": [
+        "Joseph-M-Otting-04.27.2020-278T.pdf",
+        "Joseph-M-Otting-05.12.2020-278T.pdf",
+        "Joseph-M-Otting-2020-278TERM.pdf"
+    ],
+    "overbaugh, justin department of defense/office of the secretary, deputy under secretary for intelligence and security": [
+        "Justin-Overbaugh-10.23.2025-278T.pdf",
+        "Overbaugh, Justin  final278.pdf"
+    ],
+    "overbey, j. douglas department of justice, u.s. attorney tennessee eastern district": [
+        "J-Douglas-Overbey-03.19.2020-278T.pdf",
+        "J-Douglas-Overbey-03.26.2020-278T.pdf",
+        "J-Douglas-Overbey-03.31.2020-278T.pdf",
+        "J-Douglas-Overbey-2020-278.pdf",
+        "J-Douglas-Overbey-2021-278TERM.pdf"
     ],
     "oz, mehmet department of health and human services, administrator, centers for medicare & medicaid services": [
         "Mehmet-Oz-05.14.2025-278T.pdf",
@@ -6373,7 +6779,8 @@
         "Susan-L-Pamerleau-2022-278.pdf",
         "Susan-L-Pamerleau-2023-278.pdf",
         "Susan-L-Pamerleau-2024-278.pdf",
-        "Susan-L-Pamerleau-2025-278ANNU.pdf"
+        "Susan-L-Pamerleau-2025-278ANNU.pdf",
+        "Susan-Pamerleau-11.14.2025-278T.pdf"
     ],
     "pane, martin j department of justice, u.s. marshal pennsylvania middle district": [
         "Martin-J-Pane-03.16.2020-278T.pdf",
@@ -6568,12 +6975,17 @@
         "Caroline-Pham-2023-278.pdf",
         "Caroline-Pham-2024-278.pdf",
         "Caroline-Pham-2025-278.pdf",
+        "Caroline-Pham-2025-278TERM.pdf",
         "Pham, Caroline  AMENDEDfinal278.pdf",
         "Pham, Caroline OGE-2022-114.pdf"
     ],
     "phelan, john department of the navy, secretary": [
+        "John-Phelan-01.09.2026-278TDRAFT.pdf",
         "John-Phelan-05.20.2025-278TDRAFT.pdf",
         "John-Phelan-07.28.2025-278TDRAFT(1).pdf",
+        "John-Phelan-10.02.2025-278TDRAFT (1).pdf",
+        "John-Phelan-10.02.2025-278TDRAFT (2).pdf",
+        "John-Phelan-11.17.2025-278T(1).pdf",
         "Phelan, John OGE-2025-128-CDIV.pdf"
     ],
     "phillips, ann department of transportation, administrator, maritime administration": [
@@ -6611,8 +7023,11 @@
         "Willie-L-Phillips-2025-278TERM.pdf"
     ],
     "pirro, jeanine department of justice, u.s. attorney district of columbia": [
+        "Jeanine-Pirro-01.05.2026-278T(2).pdf",
+        "Jeanine-Pirro-01.05.2026-278T.pdf",
         "Jeanine-Pirro-09.17.2025-278T.pdf",
         "Jeanine-Pirro-11.19.2025-278T.pdf",
+        "Jeanine-Pirro-12.05.2025-278T.pdf",
         "Pirro, Jeanine  final278.pdf",
         "Pirro, Jeanine OGE-2025-201-CDIV.pdf"
     ],
@@ -6642,10 +7057,15 @@
         "Joseph-A-Pollard-2025-278ANNU.pdf"
     ],
     "pommersheim, john m department of state, ambassador to tajikistan (republic of)": [
+        "John-M-Pommersheim-01.18.2022-278T.pdf",
+        "John-M-Pommersheim-01.28.2022-278T.pdf",
         "John-M-Pommersheim-03.18.2022-278T.pdf",
+        "John-M-Pommersheim-04.13.2021-278T.pdf",
         "John-M-Pommersheim-05.09.2022-278T.pdf",
         "John-M-Pommersheim-05.10.2021-278T.pdf",
+        "John-M-Pommersheim-08.03.2021-278T.pdf",
         "John-M-Pommersheim-08.12.2020-278T.pdf",
+        "John-M-Pommersheim-09.11.2021-278T.pdf",
         "John-M-Pommersheim-09.26.2020-278T.pdf",
         "John-M-Pommersheim-10.21.2020-278T.pdf",
         "John-M-Pommersheim-12.15.2020-278T.pdf",
@@ -9660,7 +10080,8 @@
         "Ross-P-Worthington-03.29.2020-278T.pdf",
         "Ross-P-Worthington-05.01.2020-278T.pdf",
         "Ross-P-Worthington-2020-278.pdf",
-        "Ross-P-Worthington-2021-278TERM.pdf"
+        "Ross-P-Worthington-2021-278TERM.pdf",
+        "Ross-P-Worthington-2025-278NEDRAFT.pdf"
     ],
     "wray, christopher a department of justice, director, federal bureau of investigation": [
         "Christopher-A-Wray-11.11.2021-278T.pdf",
