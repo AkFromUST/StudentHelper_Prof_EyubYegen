@@ -1,0 +1,4 @@
+agencyname,city,state,muckrock_id,status
+New York City Fire Department,NY,NY,4250,api_state
+Seattle Fire Department,WA,WA,18127,local
+Boston Fire Department,MA,MA,3523,local
